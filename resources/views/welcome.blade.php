@@ -9,7 +9,7 @@
                 <div style="text-align: center;"><img src="/images/Logo_Final.png"></div>
 
                 <div class="panel-body">
-                    Link to begin
+                    <a href="{{ url('/home') }} "style="font-size: 15px; color: blue">Link to begin</a>
                 </div>
             </div>
         </div>
