@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    <div style="text-align: center;"><img src="/images/redcross.png"></div>
                 </a>
             </div>
 
