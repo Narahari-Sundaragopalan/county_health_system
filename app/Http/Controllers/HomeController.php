@@ -31,9 +31,9 @@ class HomeController extends Controller
             if ($user->hasRole('admin'))
                 return view('admin', compact('user'));
             elseif ($user->hasRole('nurse'))
-                return view('carousel', compact('user'));
+                return view('nurse', compact('user'));
             elseif ($user->hasRole('coordinator'))
-                return view('carousel', compact('user'));
+                return view('coordinator', compact('user'));
             else
                 return view('home', compact('user'));
         }

@@ -35,6 +35,32 @@
                         </ul>
                     </li>
                     @endrole
+
+                    @role('nurse')
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-btn fa-fw fa-cogs"></i>Manage<span class="caret"></span></a>
+                        <ul class="dropdown-menu multi level" role="menu">
+                            <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
+                            <li><a href="{{ url('/patient') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
+                            {{--<li class="divider"></li>--}}
+                            {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
+                        </ul>
+                    </li>
+                    @endrole
+
+                    @role('coordinator')
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-btn fa-fw fa-cogs"></i>Manage<span class="caret"></span></a>
+                        <ul class="dropdown-menu multi level" role="menu">
+                            <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
+                            <li><a href="{{ url('/patient') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
+                            {{--<li class="divider"></li>--}}
+                            {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
+                        </ul>
+                    </li>
+                    @endrole
                 </ul>
         @endif
 
