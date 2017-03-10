@@ -13,7 +13,7 @@
             <!-- Branding Image -->
             {{--<a class="navbar-brand" href="{{ url('/') }}">Laravel</a>--}}
             <a class="navbar-brand" href="{{ url('/') }}">
-                Basic Bed Tracking App
+                <div style="text-align: center;"><img src="/images/redcross.png"></div>
             </a>
         </div>
 

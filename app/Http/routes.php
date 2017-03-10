@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::resource('users', 'UserController');
+
+Route::resource('roles', 'RolesController');
+
 Route::post('/password/securityquestions', 'Auth\PasswordController@getPasswordSecurityQuestions');
 
 Route::post('/resetPassword', 'Auth\PasswordController@resetPassword');

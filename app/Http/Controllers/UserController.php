@@ -15,14 +15,14 @@ use Input;
 use DB;
 use Log;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     public function __construct()
     {
 //        $this->middleware('administrator', ['only' => ['create', 'edit', 'destroy', 'update']]);
 //        $this->middleware('administrator');
 //        $this->middleware('role:admin|root');
-        $this->middleware('role:admin');
+      //  $this->middleware('role:admin');
 
         $this->user = Auth::user();
         $this->users = User::all();

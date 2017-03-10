@@ -18,28 +18,9 @@
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                             </ol>
                             <!-- Wrapper for slides -->
-                            <div class="carousel-inner" style="text-align: center;">
-                                <div class="item active" style="text-align: center;">
-                                    <a href="http://www.unomaha.edu/college-of-information-science-and-technology" target="_blank">
-                                        <img src="/images/StudentWordCloud1.jpg" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="item" style="text-align: center;">
-                                    {{--<a href="http://www.nacada.ksu.edu" target="_blank">--}}
-                                    <a href="http://www.unomaha.edu/college-of-information-science-and-technology/academics/advising.php" target="_blank">
-                                        <img src="/images/StudentFaculty.jpg" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="item" style="text-align: center;">
-                                    <a href="http://www.unomaha.edu" target="_blank">
-                                        <img src="/images/StudentLearning.jpg" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
+
                             <!-- Left and right controls -->
-                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="icon-prev"></span></a>
-                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="icon-next"></span></a>
-                        </div>
+                           </div>
                         <!-- /.carousel -->
                     </div>
                 </div>
@@ -47,6 +28,7 @@
         </div>
     </div>
 @endsection
+
 
 @section('footer')
     <style>
