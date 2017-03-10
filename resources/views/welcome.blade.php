@@ -9,7 +9,7 @@
                 <div style="text-align: center;"><img src="/images/Logo_Final.png"></div>
 
                 <div class="panel-body">
-                    <a href="{{ url('/home') }} "style="font-size: 15px; color: blue">Link to begin</a>
+                    <a href="{{ url('/emergencies') }}"style="font-size: 20px; color: red" ><i class="fa fa-btn fa-fw fa-ambulance" style="font-size: 30px"></i>Click here for Emergencies</a></li>
                 </div>
             </div>
         </div>
