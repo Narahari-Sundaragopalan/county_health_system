@@ -31,7 +31,7 @@
                             <li><a href="{{ url('/users') }}"><i class="fa fa-btn fa-fw fa-user"></i>Users</a></li>
                             <li><a href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-users"></i>Roles</a></li>
                             <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
-                            <li><a href="{{ url('/patient') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
+                            <li><a href="{{ url('/patients') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
                             {{--<li class="divider"></li>--}}
                             {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                         </ul>
@@ -44,7 +44,7 @@
                             <i class="fa fa-btn fa-fw fa-cogs"></i>Manage<span class="caret"></span></a>
                         <ul class="dropdown-menu multi level" role="menu">
                             <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
-                            <li><a href="{{ url('/patient') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
+                            <li><a href="{{ url('/patients') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
                             {{--<li class="divider"></li>--}}
                             {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                         </ul>
@@ -57,7 +57,7 @@
                             <i class="fa fa-btn fa-fw fa-cogs"></i>Manage<span class="caret"></span></a>
                         <ul class="dropdown-menu multi level" role="menu">
                             <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
-                            <li><a href="{{ url('/patient') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
+                            <li><a href="{{ url('/patients') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
                             {{--<li class="divider"></li>--}}
                             {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                         </ul>

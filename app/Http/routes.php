@@ -30,3 +30,5 @@ Route::post('/passwordchanged', 'Auth\PasswordController@changePassword');
 Route::get('/home', 'HomeController@index');
 
 Route::resource('emergencies', 'EmergencyController');
+
+Route::resource('patients', 'PatientController');
