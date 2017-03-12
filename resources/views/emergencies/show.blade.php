@@ -18,7 +18,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div style="text-align: center"><h3>{{ $emergency_name . ' Beds Available' }}</h3></div>
+                        <div style="text-align: center"><h3>{{ $emergency_name . ' - Bed Availablity' }}</h3></div>
                     </div>
                     <div class="panel-body">
                         @if (count($hospitals) > 0)

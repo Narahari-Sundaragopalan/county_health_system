@@ -25,6 +25,7 @@ class PasswordController extends Controller
     |
     */
 
+
     use ResetsPasswords;
 
     /**
@@ -34,7 +35,8 @@ class PasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+       $this->middleware('guest');
+
     }
 
     protected function getPasswordSecurityQuestions(Request $request)
@@ -72,7 +74,7 @@ class PasswordController extends Controller
         }
     }
 
-    protected function changePassword(Request $request)
+    protected function resetPasswordSuccess(Request $request)
     {
         try {
             $email = $request->email;

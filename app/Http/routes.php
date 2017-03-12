@@ -17,15 +17,21 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::get('/password/changePassword', 'SettingsController@showChangePasswordForm');
+
+Route::post('/password/changePassword', 'SettingsController@updatePassword');
+
 Route::resource('users', 'UserController');
 
 Route::resource('roles', 'RolesController');
+
+Route::get('/password/securityquestions', 'Auth\PasswordController@getPasswordSecurityQuestions');
 
 Route::post('/password/securityquestions', 'Auth\PasswordController@getPasswordSecurityQuestions');
 
 Route::post('/resetPassword', 'Auth\PasswordController@resetPassword');
 
-Route::post('/passwordchanged', 'Auth\PasswordController@changePassword');
+Route::post('/passwordchanged', 'Auth\PasswordController@resetPasswordSuccess');
 
 Route::get('/home', 'HomeController@index');
 
