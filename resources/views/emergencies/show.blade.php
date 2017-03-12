@@ -1,12 +1,24 @@
-@extends('layouts.guestpage')
+@extends(Auth::user() ? 'layouts.userlayout' : 'layouts.guestpage')
 
 @section('content')
+    <style>
+        th {
+            background: green;
+            color: white;
+            text-align: center;
+        }
+
+        tr {
+            text-align: center;
+        }
+
+    </style>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div style="text-align: center"><h3>{{ $emergency_name . 'Bed Status' }}</h3></div>
+                        <div style="text-align: center"><h3>{{ $emergency_name . ' Beds Available' }}</h3></div>
                     </div>
                     <div class="panel-body">
                         @if (count($hospitals) > 0)
@@ -14,13 +26,19 @@
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead> <!-- Table Headings -->
                                     {{--<th>User</th><th>Email</th><th>Status</th><th class="no-sort">Actions</th>--}}
-                                    <th>Hospital</th><th>Beds Available</th><th>Contact</th>
+                                    <th>Hospital</th><th colspan="4" style="text-align: center">Beds Available</th><th>Contact</th>
+                                    <tr>
+                                        <th></th><th>Critical</th><th>Burn Ward</th><th>Pediatric</th><th>General</th><th></th>
+                                    </tr>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($hospitals as $hospital)
                                         <tr>
                                             <td class="table-text"><div>{{ $hospital->hospital_name }}</div></td>
-                                            <td class="table-text"><div>{{ ($hospital->no_of_beds) - ($hospital->beds_occupied) }}</div></td>
+                                            <td class="table-text"><div>{{ ($hospital->critical_care_beds) - ($hospital->critical_care_beds_occupied) }}</div></td>
+                                            <td class="table-text"><div>{{ ($hospital->burn_ward_beds) - ($hospital->burn_ward_beds_occupied) }}</div></td>
+                                            <td class="table-text"><div>{{ ($hospital->pediatric_unit_beds) - ($hospital->pediatric_unit_beds_occupied) }}</div></td>
+                                            <td class="table-text"><div>{{ ($hospital->general_care_beds) - ($hospital->general_care_beds_occupied) }}</div></td>
                                             <td class="table-text"><div>{{ $hospital->contact }}</div></td>
                                         </tr>
                                     @endforeach

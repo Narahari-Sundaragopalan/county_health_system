@@ -1,6 +1,17 @@
-@extends('layouts.guestpage')
-
+@extends(Auth::user() ? 'layouts.userlayout' : 'layouts.guestpage')
 @section('content')
+    <style>
+        th {
+            background: green;
+            color: white;
+            text-align: center;
+        }
+
+        tr {
+            text-align: center;
+        }
+
+    </style>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -19,9 +30,9 @@
                                     <tbody> <!-- Table Body -->
                                     @foreach ($emergencies as $emergency)
                                         <tr>
-                                            <td class="table-text"><div><a href="{{ url('/emergencies/show') }}">{{ $emergency->emergency_name }}</a></div></td>
+                                            <td class="table-text"><div>{{ $emergency->emergency_name }}</div></td>
                                             <td class="table-text"><div>{{ $emergency->emergency_start_date }}</div></td>
-                                            <td class="table-text"><a href="{{url('emergencies',$emergency->id)}}" class="btn btn-primary">View</a></td>
+                                            <td class="table-text"><a href="{{url('emergencies',$emergency->id)}}" class="btn btn-primary">Check Bed Status</a></td>
                                             {{--<td>--}}
                                             {{--@if($user->id != 1) <!-- Administrator User -->--}}
                                             {{--<div class="pull-right" style="height: 25px;">--}}

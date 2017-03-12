@@ -19,8 +19,14 @@ class CreateHospitalTable extends Migration
             $table->string('address_2');
             $table->string('contact');
             $table->string('zipcode');
-            $table->unsignedBigInteger('no_of_beds');
-            $table->unsignedBigInteger('beds_occupied');
+            $table->unsignedBigInteger('critical_care_beds');
+            $table->unsignedBigInteger('critical_care_beds_occupied');
+            $table->unsignedBigInteger('burn_ward_beds');
+            $table->unsignedBigInteger('burn_ward_beds_occupied');
+            $table->unsignedBigInteger('pediatric_unit_beds');
+            $table->unsignedBigInteger('pediatric_unit_beds_occupied');
+            $table->unsignedBigInteger('general_care_beds');
+            $table->unsignedBigInteger('general_care_beds_occupied');
             $table->timestamps();
         });
     }
