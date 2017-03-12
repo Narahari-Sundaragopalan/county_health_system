@@ -1,18 +1,36 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome to County Health Bed Tracking System</div>
-                <div style="text-align: center;"><img src="/images/Logo_Final.png"></div>
+<head>
+    <style>
+        body {
+            background-color: lightgray;
+            background-image: url("/images/Speeding-ambulance-011.jpeg");
+        }
+    </style>
+</head>
 
-                <div class="panel-body">
-                    <a href="{{ url('/emergencies') }}"style="font-size: 20px; color: red" ><i class="fa fa-btn fa-fw fa-ambulance" style="font-size: 30px"></i>Click here for Emergencies</a></li>
-                </div>
-            </div>
-        </div>
+<style>
+
+    .mid h3 {
+        font-family: sans-serif;
+        font-style: italic;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+        white-space: nowrap;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 6rem;
+        transform: translate(-50%, -50%);
+    }
+
+
+</style>
+@section('content')
+    <div class="module"></div>
+    <div class="mid">
+        <h3>Prompt, high quality, emergency <br/> medical care<hr style="height: auto"><a href="{{ url('/emergencies') }}"style="color: white; font-size: 30px" ><i class="fa fa-btn fa-fw fa-ambulance" style="font-size: 30px"></i>Check for Emergencies</a></h3>
     </div>
-</div>
 @endsection
