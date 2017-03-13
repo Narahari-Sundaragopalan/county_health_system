@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.userlayout')
 
 @section('content')
     <div class="container">
@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::model($user, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['UsersController@update', $user->id]]) !!}
+                        {!! Form::model($user, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['UserController@update', $user->id]]) !!}
                         @include('common.errors')
                         @include('common.flash')
 

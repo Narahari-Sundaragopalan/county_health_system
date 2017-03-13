@@ -22,13 +22,51 @@
     </div>
 </div>
 
-<div class="form-group">
-    <div class="col-md-6 col-md-offset-4">
-        <div class="checkbox">
-            <label>
-                {{ Form::hidden('active', false) }}{{ Form::checkbox('active', true, old('active')) }} Active
-            </label>
-        </div>
+<div class="form-group{{ $errors->has('security_question1') ? ' has-error' : '' }}">
+    {!! Form::label('security_question1', 'Security Question 1:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('security_question1', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        @if ($errors->has('security_question1'))
+            <span class="help-block">
+                <strong>{{ $errors->first('security_question1') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('security_answer1') ? ' has-error' : '' }}">
+    {!! Form::label('security_answer1', 'Security Answer 1:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('security_answer1', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        @if ($errors->has('security_answer1'))
+            <span class="help-block">
+                <strong>{{ $errors->first('security_answer1') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('security_question2') ? ' has-error' : '' }}">
+    {!! Form::label('security_question2', 'Security Question 2:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('security_question2', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        @if ($errors->has('security_question2'))
+            <span class="help-block">
+                <strong>{{ $errors->first('security_question2') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('security_answer2') ? ' has-error' : '' }}">
+    {!! Form::label('security_answer2', 'Security Answer 2:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('security_answer2', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        @if ($errors->has('security_answer2'))
+            <span class="help-block">
+                <strong>{{ $errors->first('security_answer2') }}</strong>
+            </span>
+        @endif
     </div>
 </div>
 

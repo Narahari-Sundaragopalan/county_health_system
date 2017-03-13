@@ -65,7 +65,7 @@ class UserController extends Controller
         $input = $request->all();
         $this->populateCreateFields($input);
         $input['password'] = bcrypt($request['password']);
-        $input['active'] = $request['active'] == '' ? false : true;
+        //dd($input);
 
         $object = User::create($input);
         $this->syncRoles($object, $request->input('rolelist'));
@@ -110,11 +110,9 @@ class UserController extends Controller
     {
         $object = $users;
         Log::info('UsersController.destroy: Start: '.$object->id.'|'.$object->name);
-        if ($this->authorize('destroy', $object))
-        {
-            Log::info('Authorization successful');
+
             $object->delete();
-        }
+
         Log::info('UsersController.destroy: End: ');
         return redirect('/users');
     }
