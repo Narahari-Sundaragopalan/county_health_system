@@ -2,14 +2,8 @@
 
 @section('content')
     <style>
-        th {
-            background: green;
-            color: white;
-            text-align: center;
-        }
-
         tr {
-            text-align: center;
+            font-size: medium;
         }
 
     </style>
@@ -18,36 +12,81 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div style="text-align: center"><h3>{{ $emergency_name . ' Beds Available' }}</h3></div>
+                        <div class="pull-left">
+                            <a href="{{ URL::route('patients.index') }}" class="btn btn-info"><i class="fa fa-btn fa-backward"></i>Back</a>
+                        </div>
+                        <div class="pull-right">
+                            <form action="{{ url('patients/'.$patient->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                                <button type="submit" id="delete-user-{{ $patient->id }}" class="btn btn-danger"><i class="fa fa-btn fa-trash"></i>Delete</button>
+                            </form>
+                        </div>
+                        <div style="text-align: center"><h3>{{ 'Patient Details' }}</h3></div>
                     </div>
                     <div class="panel-body">
-                        @if (count($hospitals) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
-                                    <thead> <!-- Table Headings -->
-                                    {{--<th>User</th><th>Email</th><th>Status</th><th class="no-sort">Actions</th>--}}
-                                    <th>Hospital</th><th colspan="4" style="text-align: center">Beds Available</th><th>Contact</th>
+                                    <tbody>
+                                    <tr class="bg-info">
                                     <tr>
-                                        <th></th><th>Critical</th><th>Burn Ward</th><th>Pediatric</th><th>General</th><th></th>
+                                        <td>Name</td>
+                                        <td><?php echo ($patient['patient_first_name'] . ' ' . $patient['patient_last_name']); ?></td>
                                     </tr>
-                                    </thead>
-                                    <tbody> <!-- Table Body -->
-                                    @foreach ($hospitals as $hospital)
-                                        <tr>
-                                            <td class="table-text"><div>{{ $hospital->hospital_name }}</div></td>
-                                            <td class="table-text"><div>{{ ($hospital->critical_care_beds) - ($hospital->critical_care_beds_occupied) }}</div></td>
-                                            <td class="table-text"><div>{{ ($hospital->burn_ward_beds) - ($hospital->burn_ward_beds_occupied) }}</div></td>
-                                            <td class="table-text"><div>{{ ($hospital->pediatric_unit_beds) - ($hospital->pediatric_unit_beds_occupied) }}</div></td>
-                                            <td class="table-text"><div>{{ ($hospital->general_care_beds) - ($hospital->general_care_beds_occupied) }}</div></td>
-                                            <td class="table-text"><div>{{ $hospital->contact }}</div></td>
-                                        </tr>
-                                    @endforeach
+                                    <tr>
+                                        <td>Admit Date</td>
+                                        <td><?php echo ($patient['admit_date']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Admit Time</td>
+                                        <td><?php echo ($patient['admit_time']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Condition </td>
+                                        <td><?php echo ($patient['patient_condition']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Age</td>
+                                        <td><?php echo ($patient['age']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender </td>
+                                        <td><?php echo ($patient['gender']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Birth</td>
+                                        <td><?php echo ($patient['date_of_birth']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Department</td>
+                                        <td><?php echo ($patient['department']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Next of Kin</td>
+                                        <td><?php echo ($patient['next_of_kin']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emergency Contact</td>
+                                        <td><?php echo ($patient['next_of_kin_contact']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Next of Kin Relation</td>
+                                        <td><?php echo ($patient['next_of_kin_relation']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Deposition Condition</td>
+                                        <td><?php echo ($patient['patient_deposition_condition']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Room No</td>
+                                        <td><?php echo ($patient['room_no']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Injury Type</td>
+                                        <td><?php echo ($patient['patient_injury']); ?></td>
+                                    </tr>
+
                                     </tbody>
                                 </table>
-                            </div>
-                        @else
-                            <div class="panel-body"><h4>No Beds Available</h4></div>
-                        @endif
+                           </div>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,11 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        <div class="pull-right">
+                            <form action="{{ url('/patients/create') }}" method="GET">{{ csrf_field() }}
+                                <button type="submit" id="create-patient" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>New Patient</button>
+                            </form>
+                        </div>
                         <div style="text-align: center"><h3>{{ 'Patients' }}</h3></div>
                     </div>
                     <div class="panel-body">
@@ -26,30 +31,20 @@
                                     {{--<th>User</th><th>Email</th><th>Status</th><th class="no-sort">Actions</th>--}}
                                     <th>Name</th>
                                     <th>Admit Date</th>
-                                    <th>Condition</th>
-                                    <th>Gender</th>
-                                    <th>Next of Kin</th>
+                                    <th>Emergency Contact</th>
+                                    <th>Department</th>
                                     <th>Room</th>
+                                    <th>View</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($patients as $patient)
                                         <tr>
-                                            <td class="table-text"><div>{{ $patient->patient_first_name }}</div></td>
+                                            <td class="table-text"><div><a href="{{ url('/patients/'.$patient->id.'/edit') }}">{{ $patient->patient_first_name . ' ' . $patient->patient_last_name }}</a></div></td>
                                             <td class="table-text"><div>{{ $patient->admit_date }}</div></td>
-                                            <td class="table-text"><div>{{ $patient->patient_condition }}</div></td>
-                                            <td class="table-text"><div>{{ $patient->gender }}</div></td>
                                             <td class="table-text"><div>{{ $patient->next_of_kin_contact }}</div></td>
+                                            <td class="table-text"><div>{{ $patient->department }}</div></td>
                                             <td class="table-text"><div>{{ $patient->room_no }}</div></td>
-                                            {{--<td class="table-text"><a href="{{url('emergencies',$emergency->id)}}" class="btn btn-primary">Check Bed Status</a></td>--}}
-                                            {{--<td>--}}
-                                            {{--@if($user->id != 1) <!-- Administrator User -->--}}
-                                            {{--<div class="pull-right" style="height: 25px;">--}}
-                                            {{--<form action="{{ url('users/'.$user->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}--}}
-                                            {{--<button type="submit" id="delete-user-{{ $user->id }}" class="btn btn-default"><i class="fa fa-trash"></i></button>--}}
-                                            {{--</form>--}}
-                                            {{--</div>--}}
-                                            {{--@endif--}}
-                                            {{--</td>--}}
+                                            <td><a href="{{url('patients',$patient->id)}}" class="btn btn-primary">Details</a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
