@@ -21,4 +21,9 @@ class Hospital extends Model
     {
         return $this->hasMany('App\Patient');
     }
+
+    public function nurse()
+    {
+        return $this->hasMany('App\Nurse');
+    }
 }
