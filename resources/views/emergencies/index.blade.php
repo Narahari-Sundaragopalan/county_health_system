@@ -17,6 +17,11 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        <div class="pull-right">
+                            <form action="{{ url('emergencies/create') }}" method="GET">{{ csrf_field() }}
+                                <button type="submit" id="create-user" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Create</button>
+                            </form>
+                        </div>
                         <div style="text-align: center"><h3>{{ 'Emergencies' }}</h3></div>
                     </div>
                     <div class="panel-body">
@@ -30,7 +35,7 @@
                                     <tbody> <!-- Table Body -->
                                     @foreach ($emergencies as $emergency)
                                         <tr>
-                                            <td class="table-text"><div>{{ $emergency->emergency_name }}</div></td>
+                                            <td class="table-text"><div><a href="{{ url('/emergencies/'.$emergency->id.'/edit') }}">{{ $emergency->emergency_name }}</a></div></td>
                                             <td class="table-text"><div>{{ $emergency->emergency_start_date }}</div></td>
                                             <td class="table-text"><a href="{{url('emergencies',$emergency->id)}}" class="btn btn-primary">Check Bed Status</a></td>
                                             {{--<td>--}}
