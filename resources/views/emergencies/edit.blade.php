@@ -1,6 +1,9 @@
 @extends(Auth::user() ? 'layouts.userlayout' : 'layouts.guestpage')
 
 @section('content')
+    <head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    </head>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -35,7 +38,7 @@
                         <div class="form-group{{ $errors->has('emergency_start_date') ? ' has-error' : '' }}">
                             {!! Form::label('emergency_start_date', 'Emergency Start Date:', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('emergency_start_date', null, ['class' => 'col-md-6 form-control']) !!}
+                                {{ Form::text('emergency_start_date', null, array('id' => 'datepicker1'), ['class' => 'col-md-6 form-control']) }}
                                 @if ($errors->has('emergency_start_date'))
                                     <span class="help-block"><strong>{{ $errors->first('emergency_start_date') }}</strong></span>
                                 @endif
@@ -45,7 +48,7 @@
                         <div class="form-group{{ $errors->has('emergency_end_date') ? ' has-error' : '' }}">
                             {!! Form::label('emergency_end_date', 'Emergency End Date:', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('emergency_end_date', null, ['class' => 'col-md-6 form-control']) !!}
+                                {{ Form::text('emergency_end_date', null, array('id' => 'datepicker2'), ['class' => 'col-md-6 form-control']) }}
                                 @if ($errors->has('emergency_end_date'))
                                     <span class="help-block"><strong>{{ $errors->first('emergency_end_date') }}</strong></span>
                                 @endif
@@ -63,4 +66,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer')
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#datepicker1" ).datepicker();
+            $( "#datepicker2" ).datepicker();
+        });
+    </script>
 @endsection

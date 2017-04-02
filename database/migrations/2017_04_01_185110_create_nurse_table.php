@@ -21,9 +21,11 @@ class CreateNurseTable extends Migration
             $table->date('date_of_birth');
             $table->string('department');
             $table->unsignedInteger('hospital_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
 
             $table->foreign('hospital_id')->references('id')->on('hospitals')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

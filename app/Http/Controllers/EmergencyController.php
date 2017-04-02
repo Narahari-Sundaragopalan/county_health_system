@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Emergency;
 use App\Hospital;
+use App\User;
 use Illuminate\Http\Request;
 use Log;
+use Auth;
+use App\Nurse;
+use App\Patient;
 
 use App\Http\Requests;
 
@@ -15,6 +19,8 @@ class EmergencyController extends Controller
     {
         Log::info('EmergencyController.index: ');
         $emergencies = Emergency::all();
+
+
 
         return view('emergencies.index', compact('emergencies'));
     }

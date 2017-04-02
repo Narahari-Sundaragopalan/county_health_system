@@ -6,15 +6,29 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
+
 use App\Patient;
 
 use App\Hospital;
+
+use App\Nurse;
 
 class PatientController extends Controller
 {
     public function index()
     {
         $patients = Patient::all();
+
+
+        $user = Auth::user();
+        if (Auth::check() && $user->hasRole('nurse')) {
+            $current_user_id = Auth::user()->id;
+            $current_hospital_id = Nurse::where('user_id', $current_user_id)->value('hospital_id');
+            $patients = Patient::where('hospital_id', $current_hospital_id)->get();
+
+        }
+
         return view('patients.index',compact('patients'));
     }
 

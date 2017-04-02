@@ -1,5 +1,8 @@
 @extends(Auth::user() ? 'layouts.userlayout' : 'layouts.guestpage')
 @section('content')
+    <head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    </head>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -25,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('admit_date', 'Admit Date:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('admit_date',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{{ Form::text('admit_date', null, array('id' => 'datepicker1'), ['class' => 'col-md-6 form-control']) }}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('admit_time', 'Admit Time:') !!}</div>
@@ -45,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('date_of_birth', 'Date of Birth:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('date_of_birth',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{{ Form::text('date_of_birth', null, array('id' => 'datepicker2'), ['class' => 'col-md-6 form-control']) }}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('department', 'Department:') !!}</div>
@@ -87,4 +90,15 @@
             </div>
         </div>
     </div>
-@stop
+@endsection
+
+@section('footer')
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#datepicker1" ).datepicker();
+            $( "#datepicker2" ).datepicker();
+        });
+    </script>
+@endsection
