@@ -17,11 +17,13 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        @if(Auth::check() && (Auth::user()->hasRole('admin') || Auth::user()->hasRole('nurse')))
                         <div class="pull-right">
                             <form action="{{ url('/patients/create') }}" method="GET">{{ csrf_field() }}
                                 <button type="submit" id="create-patient" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>New Patient</button>
                             </form>
                         </div>
+                        @endif
                         <div style="text-align: center"><h3>{{ 'Patients' }}</h3></div>
                     </div>
                     <div class="panel-body">
@@ -39,7 +41,16 @@
                                     <tbody> <!-- Table Body -->
                                     @foreach ($patients as $patient)
                                         <tr>
-                                            <td class="table-text"><div><a href="{{ url('/patients/'.$patient->id.'/edit') }}">{{ $patient->patient_first_name . ' ' . $patient->patient_last_name }}</a></div></td>
+                                            <td class="table-text">
+                                                <div>
+                                                    @if(Auth::check() && (Auth::user()->hasRole('admin') || Auth::user()->hasRole('nurse')))
+                                                        <a href="{{ url('patients/'.$patient->id.'/edit') }}">{{ $patient->patient_first_name . ' ' . $patient->patient_last_name }}</a>
+                                                    @elseif(Auth::user()->hasRole('coordinator'))
+                                                        <span href="{{ url('/patients/'.$patient->id.'/edit') }}">{{ $patient->patient_first_name . ' ' . $patient->patient_last_name }}
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </td>
                                             <td class="table-text"><div>{{ $patient->admit_date }}</div></td>
                                             <td class="table-text"><div>{{ $patient->next_of_kin_contact }}</div></td>
                                             <td class="table-text"><div>{{ $patient->department }}</div></td>

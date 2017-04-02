@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Auth;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Validator;
+use Illuminate\Support\Facades\Input;
 
 use App\Patient;
 
@@ -20,13 +23,10 @@ class PatientController extends Controller
     {
         $patients = Patient::all();
 
-
-        $user = Auth::user();
-        if (Auth::check() && $user->hasRole('nurse')) {
+        if (Auth::check() && Auth::user()->hasRole('nurse')) {
             $current_user_id = Auth::user()->id;
             $current_hospital_id = Nurse::where('user_id', $current_user_id)->value('hospital_id');
             $patients = Patient::where('hospital_id', $current_hospital_id)->get();
-
         }
 
         return view('patients.index',compact('patients'));
@@ -51,6 +51,13 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'patient_first_name' => 'bail|required|max:255',
+            'age' => 'digits',
+        ]);
+
+
         $patient = new Patient($request->all());
         $currentHospital = $request['hospital_id'];
         $hospital = Hospital::find($currentHospital);
@@ -66,6 +73,13 @@ class PatientController extends Controller
             $bed_Type = 'general_care_beds_occupied';
         }
         $hospital->increment($bed_Type);
+
+        if (Auth::check() && Auth::user()->hasRole('nurse')) {
+            $current_user_id = Auth::user()->id;
+            $current_hospital_id = Nurse::where('user_id', $current_user_id)->value('hospital_id');
+            $patient->hospital_id = $current_hospital_id;
+        }
+
         $patient->save();
         return redirect('patients');
     }
@@ -83,6 +97,20 @@ class PatientController extends Controller
         $patient = Patient::find($id);
         $current_bed_type = '';
         $updated_bed_type = '';
+
+        $rules = array (
+            'patient_first_name' => 'bail|required|max:255',
+            'patient_last_name' => 'required|max:255',
+            'age' => 'numeric',
+            'next_of_kin_contact' => 'required|regex:/([0-9]{3}-[0-9]{3}-[0-9]{4})/',
+            'room_no' => 'numeric',
+
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+        if($validator->fails()) {
+            return redirect('patients/'.$id.'/edit')->withErrors($validator)->withInput();
+        }
 
         $currentHospital = $patient->hospital_id;
         $hospital = Hospital::find($currentHospital);

@@ -12,31 +12,33 @@
                 <div class="panel-body">
                     {!! Form::open(['url' => 'patients', 'class' => 'form-horizontal']) !!}
 
+                    @if(Auth::check() && Auth::user()->hasRole('admin'))
                     <div class="form-group">
                         <div class="col-lg-2">
                         {!! Form::select('hospital_id', $hospitals) !!}
                         </div>
                     </div>
+                    @endif
 
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('patient_first_name', 'First Name:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('patient_first_name',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::text('patient_first_name',null,['class'=>'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('patient_last_name', 'Last Name:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('patient_last_name',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::text('patient_last_name',null,['class'=>'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('admit_date', 'Admit Date:') !!}</div>
-                        <div class="col-md-6">{{ Form::text('admit_date', null, array('id' => 'datepicker1'), ['class' => 'col-md-6 form-control']) }}</div>
+                        <div class="col-md-6">{{ Form::text('admit_date', null, array('id' => 'datepicker1'), ['class' => 'col-md-6 form-control', 'required']) }}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('admit_time', 'Admit Time:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('admit_time',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::text('admit_time',null,['class'=>'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('patient_condition', 'Patient Condition:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('patient_condition',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::text('patient_condition',null,['class'=>'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('age', 'Age:') !!}</div>
@@ -52,31 +54,31 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('department', 'Department:') !!}</div>
-                        <div class="col-md-6">{!! Form::select('department',array('Critical Care' => 'Critical Care', 'Burn Ward' => 'Burn Ward', 'Pediatric Unit' => 'Pediatric Unit', 'General Care' => 'General Care'), null,['placeholder' => 'Select Department', 'class' => 'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::select('department',array('Critical Care' => 'Critical Care', 'Burn Ward' => 'Burn Ward', 'Pediatric Unit' => 'Pediatric Unit', 'General Care' => 'General Care'), null,['placeholder' => 'Select Department', 'class' => 'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('next_of_kin', 'Next of Kin:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('next_of_kin',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::text('next_of_kin',null,['class'=>'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('next_of_kin_contact', 'Emergency Contact:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('next_of_kin_contact',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::text('next_of_kin_contact',null,['class'=>'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('next_of_kin_relation', 'Next of Kin Relation:') !!}</div>
                         <div class="col-md-6">{!! Form::text('next_of_kin_relation',null,['class'=>'form-control']) !!}</div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-4">{!! Form::label('patient_deposition_condition', 'Patient Condition:') !!}</div>
+                        <div class="col-md-4">{!! Form::label('patient_deposition_condition', 'Deposition Condition:') !!}</div>
                         <div class="col-md-6">{!! Form::text('patient_deposition_condition',null,['class'=>'form-control']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('room_no', 'Room No:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('room_no',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::text('room_no',null,['class'=>'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">{!! Form::label('patient_injury', 'Patient Injury:') !!}</div>
-                        <div class="col-md-6">{!! Form::text('patient_injury',null,['class'=>'form-control']) !!}</div>
+                        <div class="col-md-6">{!! Form::textarea('patient_injury',null,['class'=>'form-control', 'required']) !!}</div>
                     </div>
 
 

@@ -15,11 +15,13 @@
                         <div class="pull-left">
                             <a href="{{ URL::route('patients.index') }}" class="btn btn-info"><i class="fa fa-btn fa-backward"></i>Back</a>
                         </div>
+                        @if(Auth::check() && (Auth::user()->hasRole('admin') || Auth::user()->hasRole('nurse')))
                         <div class="pull-right">
                             <form action="{{ url('patients/'.$patient->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
                                 <button type="submit" id="delete-user-{{ $patient->id }}" class="btn btn-danger"><i class="fa fa-btn fa-trash"></i>Delete</button>
                             </form>
                         </div>
+                        @endif
                         <div style="text-align: center"><h3>{{ 'Patient Details' }}</h3></div>
                     </div>
                     <div class="panel-body">
