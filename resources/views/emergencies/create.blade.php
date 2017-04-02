@@ -23,7 +23,15 @@
                             @endif
                         </div>
                     </div>
-
+                        <div class="form-group{{ $errors->has('emergency_description') ? ' has-error' : '' }}">
+                            {!! Form::label('emergency_description', 'Emergency Description:', ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::textarea('emergency_description', null, ['class' => 'col-md-6 form-control']) !!}
+                                @if ($errors->has('emergency_description'))
+                                    <span class="help-block"><strong>{{ $errors->first('emergency_description') }}</strong></span>
+                                @endif
+                            </div>
+                        </div>
                     <div class="form-group{{ $errors->has('emergency_start_date') ? ' has-error' : '' }}">
                         {!! Form::label('emergency_start_date', 'Emergency Start Date:', ['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-6">

@@ -8,6 +8,11 @@ use App\User;
 use Illuminate\Http\Request;
 use Log;
 use Auth;
+
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Validator;
+use Illuminate\Support\Facades\Input;
+
 use App\Nurse;
 use App\Patient;
 
@@ -45,6 +50,12 @@ class EmergencyController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'emergency_name' => 'bail|required|max:50',
+            'emergency_start_date' => 'required|date|after:yesterday',
+            'emergency_end_date' => 'required|date|after:emergency_start_date',
+        ]);
+
         $emergency= new Emergency($request->all());
         $emergency->save();
         return redirect('emergencies');
@@ -61,6 +72,12 @@ class EmergencyController extends Controller
 
     public function update($id,Request $request)
     {
+        $this->validate($request, [
+            'emergency_name' => 'bail|required|max:50',
+            'emergency_description' => 'bail|max:150',
+            'emergency_start_date' => 'required|date|after:yesterday',
+            'emergency_end_date' => 'required|date|after:emergency_start_date',
+        ]);
 
         $emergency= new Emergency($request->all());
         $emergency=Emergency::find($id);

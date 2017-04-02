@@ -21,6 +21,8 @@
                     <h4 style="text-align: center">Update Patient</h4></div>
                     <div class="panel-body">
                         {!! Form::model($patient,['class' => 'form-horizontal', 'method' => 'PATCH','route'=>['patients.update',$patient->id]]) !!}
+                        @include('common.errors')
+                        @include('common.flash')
 
                         <div class="form-group{{ $errors->has('patient_first_name') ? ' has-error' : '' }}">
                             <div class="col-md-4">{!! Form::label('patient_first_name', 'First Name:') !!}</div>

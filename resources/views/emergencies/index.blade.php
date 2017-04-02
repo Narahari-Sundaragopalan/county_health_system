@@ -17,11 +17,13 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        @if (Auth::check() && Auth::user()->hasRole('admin'))
                         <div class="pull-right">
                             <form action="{{ url('emergencies/create') }}" method="GET">{{ csrf_field() }}
                                 <button type="submit" id="create-user" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Create</button>
                             </form>
                         </div>
+                        @endif
                         <div style="text-align: center"><h3>{{ 'Emergencies' }}</h3></div>
                     </div>
                     <div class="panel-body">

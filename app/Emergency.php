@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Emergency extends Model
 {
     protected $fillable = [
-        'emergency_name', 'emergency_start_date', 'emergency_end_date'
+        'emergency_name', 'emergency_description', 'emergency_start_date', 'emergency_end_date'
     ];
 
     protected $table = 'emergency';

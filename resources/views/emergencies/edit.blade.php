@@ -12,11 +12,13 @@
                         <div class="pull-left">
                                 <a href="{{ URL::route('emergencies.index') }}" class="btn btn-info"><i class="fa fa-btn fa-backward"></i>Back</a>
                         </div>
+                        @if (Auth::check() && Auth::user()->hasRole('admin'))
                         <div class="pull-right">
                             <form action="{{ url('emergencies/'.$emergency->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
                                 <button type="submit" id="delete" class="btn btn-default btn-danger"><i class="fa fa-btn fa-trash"></i>Delete</button>
                             </form>
                         </div>
+                        @endif
                         <div><h4 style="text-align: center">{{ $heading }}</h4></div>
                     </div>
 
@@ -31,6 +33,16 @@
                                 {!! Form::text('emergency_name', null, ['class' => 'col-md-6 form-control']) !!}
                                 @if ($errors->has('emergency_name'))
                                     <span class="help-block"><strong>{{ $errors->first('emergency_name') }}</strong></span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('emergency_description') ? ' has-error' : '' }}">
+                            {!! Form::label('emergency_description', 'Emergency Description:', ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::textarea('emergency_description', null, ['class' => 'col-md-6 form-control']) !!}
+                                @if ($errors->has('emergency_description'))
+                                    <span class="help-block"><strong>{{ $errors->first('emergency_description') }}</strong></span>
                                 @endif
                             </div>
                         </div>
