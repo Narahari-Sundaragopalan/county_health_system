@@ -37,7 +37,15 @@
                                     <tbody> <!-- Table Body -->
                                     @foreach ($emergencies as $emergency)
                                         <tr>
-                                            <td class="table-text"><div><a href="{{ url('/emergencies/'.$emergency->id.'/edit') }}">{{ $emergency->emergency_name }}</a></div></td>
+                                            <td class="table-text">
+                                                <div>
+                                                    @if(Auth::check() && (Auth::user()->hasRole('admin')))
+                                                        <a href="{{ url('/emergencies/'.$emergency->id.'/edit') }}">{{ $emergency->emergency_name }}</a>
+                                                    @else
+                                                        <span href="{{ url('/emergencies/'.$emergency->id.'/edit') }}">{{ $emergency->emergency_name }}</span>
+                                                        @endif
+                                                </div>
+                                            </td>
                                             <td class="table-text"><div>{{ $emergency->emergency_start_date }}</div></td>
                                             <td class="table-text"><a href="{{url('emergencies',$emergency->id)}}" class="btn btn-primary">Check Bed Status</a></td>
                                             {{--<td>--}}

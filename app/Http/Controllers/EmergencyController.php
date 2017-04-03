@@ -52,6 +52,7 @@ class EmergencyController extends Controller
     {
         $this->validate($request, [
             'emergency_name' => 'bail|required|max:50',
+            'emergency_description' => 'bail|max:150',
             'emergency_start_date' => 'required|date|after:yesterday',
             'emergency_end_date' => 'required|date|after:emergency_start_date',
         ]);
@@ -75,7 +76,7 @@ class EmergencyController extends Controller
         $this->validate($request, [
             'emergency_name' => 'bail|required|max:50',
             'emergency_description' => 'bail|max:150',
-            'emergency_start_date' => 'required|date|after:yesterday',
+            'emergency_start_date' => 'required|date|after:yesterday|before:emergency_end_date',
             'emergency_end_date' => 'required|date|after:emergency_start_date',
         ]);
 
