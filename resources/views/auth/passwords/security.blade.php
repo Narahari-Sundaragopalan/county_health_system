@@ -33,7 +33,7 @@
                                 <label for="security_question1" class="col-md-4 control-label"><?php echo ($user['security_question1']); ?></label>
 
                                 <div class="col-md-6">
-                                    <input id="security_answer1" type="security_answer1" class="form-control" name="security_answer1" value="{{ old('security_answer1') }}">
+                                    <input id="security_answer1" type="password" class="form-control" name="security_answer1" value="{{ old('security_answer1') }}">
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">
@@ -47,7 +47,7 @@
                                 <label for="security_question2" class="col-md-4 control-label"><?php echo ($user['security_question2']); ?></label>
 
                                 <div class="col-md-6">
-                                    <input id="security_answer2" type="security_answer2" class="form-control" name="security_answer2" value="{{ old('security_answer2') }}">
+                                    <input id="security_answer2" type="password" class="form-control" name="security_answer2" value="{{ old('security_answer2') }}">
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">

@@ -18,17 +18,17 @@ class CreatePatientTable extends Migration
             $table->string('patient_last_name');
             $table->date('admit_date');
             $table->string('admit_time');
-            $table->string('patient_condition');
-            $table->unsignedInteger('age');
-            $table->string('gender');
-            $table->date('date_of_birth');
+            $table->string('patient_condition')->nullable();
+            $table->unsignedInteger('age')->nullable();
+            $table->string('gender')->nullable();
+            $table->date('date_of_birth')->nullable();
             $table->string('department');
-            $table->string('next_of_kin');
+            $table->string('next_of_kin')->nullable();
             $table->string('next_of_kin_contact');
-            $table->string('next_of_kin_relation');
-            $table->string('patient_deposition_condition');
+            $table->string('next_of_kin_relation')->nullable();
+            $table->string('patient_deposition_condition')->nullable();
             $table->mediumInteger('room_no');
-            $table->string('patient_injury');
+            $table->string('patient_injury')->nullable();
             $table->unsignedInteger('hospital_id');
             $table->timestamps();
 

@@ -51,12 +51,13 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'patient_first_name' => 'bail|required|max:255',
-            'age' => 'digits',
+            'patient_last_name' => 'required|max:255',
+            'age' => 'numeric',
+            'next_of_kin_contact' => 'required|regex:/([0-9]{3}-[0-9]{3}-[0-9]{4})/',
+            'room_no' => 'required|numeric',
         ]);
-
 
         $patient = new Patient($request->all());
         $currentHospital = $request['hospital_id'];
@@ -98,19 +99,13 @@ class PatientController extends Controller
         $current_bed_type = '';
         $updated_bed_type = '';
 
-        $rules = array (
+        $this->validate($request, [
             'patient_first_name' => 'bail|required|max:255',
             'patient_last_name' => 'required|max:255',
             'age' => 'numeric',
             'next_of_kin_contact' => 'required|regex:/([0-9]{3}-[0-9]{3}-[0-9]{4})/',
-            'room_no' => 'numeric',
-
-        );
-
-        $validator = Validator::make(Input::all(), $rules);
-        if($validator->fails()) {
-            return redirect('patients/'.$id.'/edit')->withErrors($validator)->withInput();
-        }
+            'room_no' => 'required|numeric',
+        ]);
 
         $currentHospital = $patient->hospital_id;
         $hospital = Hospital::find($currentHospital);
