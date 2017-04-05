@@ -31,7 +31,7 @@ class UserController extends Controller
         $this->hospitals = Hospital::lists('hospital_name', 'id');
         $this->heading = "Users";
 
-        $this->viewData = ['user' => $this->user, 'users' => $this->users, 'list_role' => $this->list_role, $this->hospitals => 'hospital_list', 'heading' => $this->heading];
+        $this->viewData = ['user' => $this->user, 'users' => $this->users, 'list_role' => $this->list_role, 'heading' => $this->heading];
     }
 
     public function index()
