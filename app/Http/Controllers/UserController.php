@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\Role;
+use App\Hospital;
 use Auth;
 use Session;
 use Input;
@@ -27,9 +28,10 @@ class UserController extends Controller
         $this->user = Auth::user();
         $this->users = User::all();
         $this->list_role = Role::lists('display_name', 'id');
+        $this->hospitals = Hospital::lists('hospital_name', 'id');
         $this->heading = "Users";
 
-        $this->viewData = ['user' => $this->user, 'users' => $this->users, 'list_role' => $this->list_role, 'heading' => $this->heading];
+        $this->viewData = ['user' => $this->user, 'users' => $this->users, 'list_role' => $this->list_role, $this->hospitals => 'hospital_list', 'heading' => $this->heading];
     }
 
     public function index()

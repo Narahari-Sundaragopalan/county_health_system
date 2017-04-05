@@ -59,8 +59,14 @@ class PatientController extends Controller
             'room_no' => 'required|numeric',
         ]);
 
+        $currentHospital = 0;
         $patient = new Patient($request->all());
-        $currentHospital = $request['hospital_id'];
+        if (Auth::check() && Auth::user()->hasRole('admin')) {
+            $currentHospital = $request['hospital_id'];
+        } elseif (Auth::check() && Auth::user()->hasRole('nurse')) {
+            $current_user_id = Auth::user()->id;
+            $currentHospital = Nurse::where('user_id', $current_user_id)->value('hospital_id');
+        }
         $hospital = Hospital::find($currentHospital);
         $department = $request['department'];
         $bed_Type = '';
