@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="item" style="text-align: center;">
-                                    <a href="{{ url('/patient') }}" target="_blank">
+                                    <a href="{{ url('/patients') }}" target="_blank">
                                         <img src="/images/patient.png" class="img-responsive">
                                     </a>
                                     <div class="mid">
