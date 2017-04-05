@@ -89,7 +89,7 @@ class PatientController extends Controller
             $current_hospital_id = Nurse::where('user_id', $current_user_id)->value('hospital_id');
             $patient->hospital_id = $current_hospital_id;
         }
-
+        
         $patient->save();
         return redirect('patients');
     }

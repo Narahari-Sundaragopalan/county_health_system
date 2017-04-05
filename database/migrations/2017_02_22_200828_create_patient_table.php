@@ -19,7 +19,7 @@ class CreatePatientTable extends Migration
             $table->date('admit_date');
             $table->string('admit_time');
             $table->string('patient_condition')->nullable();
-            $table->unsignedInteger('age')->nullable();
+            $table->string('age')->nullable();
             $table->string('gender')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('department');
