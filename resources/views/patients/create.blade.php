@@ -52,10 +52,10 @@
                     </div>
                     <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
                         <div class="col-md-4">{!! Form::label('date_of_birth', 'Date of Birth:') !!}</div>
-                        <div class="col-md-6">{{ Form::text('date_of_birth', null, array('id' => 'datepicker2'), ['class' => 'col-md-6 form-control']) }}</div>
+                        <div class="col-md-6">{{ Form::text('date_of_birth', null, ['placeholder' => 'MM/DD/YYYY','class' => 'col-md-6 form-control']) }}</div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-4">{!! Form::label('department', 'Department:') !!}</div>
+                        <div class="col-md-4">{!! Form::label('department', '*Department:') !!}</div>
                         <div class="col-md-6">{!! Form::select('department',array('Critical Care' => 'Critical Care', 'Burn Ward' => 'Burn Ward', 'Pediatric Unit' => 'Pediatric Unit', 'General Care' => 'General Care'), null,['placeholder' => 'Select Department', 'class' => 'form-control', 'required']) !!}</div>
                     </div>
                     <div class="form-group{{ $errors->has('next_of_kin') ? ' has-error' : '' }}">

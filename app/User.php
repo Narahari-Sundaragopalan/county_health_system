@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->roles->lists('id')->all();
     }
 
+    public function getRoleName()
+    {
+        return $this->roles->first()['display_name'];
+    }
+
     /**
      * Returns if the user is active or not (true/false)
      *

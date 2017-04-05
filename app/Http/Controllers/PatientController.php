@@ -57,6 +57,9 @@ class PatientController extends Controller
             'age' => 'numeric',
             'next_of_kin_contact' => 'required|regex:/([0-9]{3}-[0-9]{3}-[0-9]{4})/',
             'room_no' => 'required|numeric',
+            'date_of_birth' => 'date|before:today',
+            'admit_date' => 'required|before:tomorrow',
+            'department' =>'required',
         ]);
 
         $currentHospital = 0;
@@ -111,6 +114,9 @@ class PatientController extends Controller
             'age' => 'numeric',
             'next_of_kin_contact' => 'required|regex:/([0-9]{3}-[0-9]{3}-[0-9]{4})/',
             'room_no' => 'required|numeric',
+            'date_of_birth' => 'date|before:today',
+            'admit_date' => 'required|before:tomorrow',
+            'department' =>'required',
         ]);
 
         $currentHospital = $patient->hospital_id;
