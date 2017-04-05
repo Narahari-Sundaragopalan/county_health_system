@@ -122,7 +122,7 @@ class PatientController extends Controller
                 $current_bed_type = 'critical_care_beds_occupied';
             } else if ($department == 'Burn Ward') {
                 $current_bed_type = 'burn_ward_beds_occupied';
-            } else if ($department == 'Pediatric') {
+            } else if ($department == 'Pediatric Unit') {
                 $current_bed_type = 'pediatric_unit_beds_occupied';
             } else if ($department == 'General Care') {
                 $current_bed_type = 'general_care_beds_occupied';
@@ -132,7 +132,7 @@ class PatientController extends Controller
                 $updated_bed_type = 'critical_care_beds_occupied';
             } else if ($request['department'] == 'Burn Ward') {
                 $updated_bed_type = 'burn_ward_beds_occupied';
-            } else if ($request['department'] == 'Pediatric') {
+            } else if ($request['department'] == 'Pediatric Unit') {
                 $updated_bed_type = 'pediatric_unit_beds_occupied';
             } else if ($request['department'] == 'General Care') {
                 $updated_bed_type = 'general_care_beds_occupied';
@@ -155,7 +155,7 @@ class PatientController extends Controller
             $hospital->decrement('critical_care_beds_occupied');
         } else if ($department == 'Burn Ward') {
             $hospital->decrement('burn_ward_beds_occupied');
-        } else if ($department == 'Pediatric') {
+        } else if ($department == 'Pediatric Unit') {
             $hospital->decrement('pediatric_unit_beds_occupied');
         } else if ($department == 'General Care') {
             $hospital->decrement('general_care_beds_occupied');
