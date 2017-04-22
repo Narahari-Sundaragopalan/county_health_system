@@ -22,7 +22,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        font-size: 6rem;
+        font-size: 4.2vw;
         transform: translate(-50%, -50%);
     }
 

@@ -14,12 +14,11 @@ class CreateNurseTable extends Migration
     {
         Schema::create('nurses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nurse_first_name');
-            $table->string('nurse_last_name');
-            $table->unsignedInteger('age');
-            $table->string('gender');
-            $table->date('date_of_birth');
-            $table->string('department');
+            $table->string('name');
+            $table->unsignedInteger('age')->nullable();
+            $table->string('gender')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('department')->nullable();
             $table->unsignedInteger('hospital_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();

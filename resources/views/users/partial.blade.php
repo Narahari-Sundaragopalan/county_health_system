@@ -97,6 +97,14 @@
     </div>
 @endif
 
+<div class="form-group{{ $errors->has('hospitallist') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">Hospital</label>
+    <div class="col-md-6">{!! Form::select('hospitallist', $list_hospital, null, ['placeholder' => 'Select Hospital', 'class' => 'form-control roles cds-select', 'style' => 'width: 50%; margin-top: 10px;']) !!}</div>
+    @if ($errors->has('hospitallist'))
+        <span class="help-block"><strong>{{ $errors->first('hospitallist') }}</strong></span>
+    @endif
+</div>
+
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         {!! Form::button('<i class="fa fa-btn fa-save"></i>Save', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}

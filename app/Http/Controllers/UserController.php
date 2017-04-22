@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Nurse;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -20,18 +21,13 @@ class UserController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('administrator', ['only' => ['create', 'edit', 'destroy', 'update']]);
-//        $this->middleware('administrator');
-//        $this->middleware('role:admin|root');
-      //  $this->middleware('role:admin');
-
         $this->user = Auth::user();
         $this->users = User::all();
         $this->list_role = Role::lists('display_name', 'id');
-        $this->hospitals = Hospital::lists('hospital_name', 'id');
+        $this->list_hospital = Hospital::lists('hospital_name', 'id');
         $this->heading = "Users";
 
-        $this->viewData = ['user' => $this->user, 'users' => $this->users, 'list_role' => $this->list_role, 'heading' => $this->heading];
+        $this->viewData = ['user' => $this->user, 'users' => $this->users, 'list_role' => $this->list_role, 'list_hospital' => $this->list_hospital, 'heading' => $this->heading];
     }
 
     public function index()
@@ -64,16 +60,36 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         Log::info('UsersController.store - Start: ');
+
+        $roleId = $request->input('rolelist');
+        $roleType = Role::where('id', $roleId)->value('name');
+        if($roleType == 'nurse') {
+            $this->validate($request, [
+                'hospitallist' => 'required',
+            ]);
+        }
+
+
         $input = $request->all();
         $this->populateCreateFields($input);
         $input['password'] = bcrypt($request['password']);
-        //dd($input);
 
         $object = User::create($input);
         $this->syncRoles($object, $request->input('rolelist'));
+
+
+        if($roleType == 'nurse') {
+            $hospitalId = $request->input('hospitallist');
+            $nurse = new Nurse();
+            $nurse->name = $request['name'];
+            $nurse->hospital_id = $hospitalId;
+            $nurse->user_id = $object->id;
+            $nurse->save();
+        }
+
         Session::flash('flash_message', 'User successfully added!');
         Log::info('UsersController.store - End: '.$object->id.'|'.$object->name);
-        return redirect()->back();
+        return redirect('users');
     }
 
     public function edit(User $users)
