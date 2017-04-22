@@ -26,14 +26,10 @@
         transform: translate(-50%, -50%);
     }
 
-    #URL {
-        font-size: 2.1vw;
-    }
-
 </style>
 @section('content')
     <div class="module"></div>
     <div class="mid">
-        <h3>Prompt, high quality, emergency <br/> medical care<hr style="height: auto"><a id="URL" href="{{ url('/emergencies') }}"style="color: white;" ><i class="fa fa-btn fa-fw fa-ambulance" style="font-size: 30px"></i>Check for Emergencies</a></h3>
+        <h3>Prompt, high quality, emergency <br/> medical care<hr style="height: auto"><a href="{{ url('/emergencies') }}"style="color: white; font-size: 2.5vw;" ><i class="fa fa-btn fa-fw fa-ambulance" style="font-size: 2.5vw"></i>Check for Emergencies</a></h3>
     </div>
 @endsection
