@@ -38,3 +38,9 @@ Route::get('/home', 'HomeController@index');
 Route::resource('emergencies', 'EmergencyController');
 
 Route::resource('patients', 'PatientController');
+
+Route::get('importExport', 'ReportDemoController@importExport');
+
+Route::get('downloadExcel/{type}', 'ReportDemoController@downloadExcel');
+
+Route::post('importExcel', 'ReportDemoController@importExcel');

@@ -32,6 +32,7 @@
                             <li><a href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-users"></i>Roles</a></li>
                             <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
                             <li><a href="{{ url('/patients') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
+                            <li><a href="{{ url('/importExport') }}"><i class="fa fa-btn fa-fw fa-file-text"></i>Reports</a></li>
                             {{--<li class="divider"></li>--}}
                             {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                         </ul>

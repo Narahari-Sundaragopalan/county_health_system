@@ -165,6 +165,11 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
 
+        /*
+         * Import and download file in form of Excel
+         */
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
 
     ],
 
@@ -221,6 +226,11 @@ return [
          */
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+
+        /*
+         * Import and download file in form of Excel
+         */
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
