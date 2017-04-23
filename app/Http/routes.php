@@ -44,3 +44,15 @@ Route::get('importExport', 'ReportDemoController@importExport');
 Route::get('downloadExcel/{type}', 'ReportDemoController@downloadExcel');
 
 Route::post('importExcel', 'ReportDemoController@importExcel');
+
+Route::get('/generateBarChart', 'ReportDemoController@generateBar');
+
+Route::post('/generateBarChart', 'ReportDemoController@generateBar');
+
+Route::get('/generateBarViz', 'ReportDemoController@generate');
+
+Route::post('/generateBarViz', 'ReportDemoController@generate');
+
+Route::get('/generateBedBarViz', 'ReportDemoController@generateBedBar');
+
+Route::post('/generateBedBarViz', 'ReportDemoController@generateBedBar');

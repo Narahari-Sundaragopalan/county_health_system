@@ -33,6 +33,7 @@
                             <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
                             <li><a href="{{ url('/patients') }}"><i class="fa fa-btn fa-fw fa-bed"></i>Patients</a></li>
                             <li><a href="{{ url('/importExport') }}"><i class="fa fa-btn fa-fw fa-file-text"></i>Reports</a></li>
+                            <li><a href="{{ url('/generateBarChart') }}"><i class="fa fa-btn fa-fw fa-file-text"></i>Generate</a></li>
                             {{--<li class="divider"></li>--}}
                             {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                         </ul>
@@ -88,3 +89,25 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .dropdown-menu {
+        background-color: #888a85;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 160px;
+        padding: 5px 0;
+        margin: 2px 0 0;
+        font-size: 14px;
+        text-align: left;
+        list-style: none;
+    }
+
+    .navbar-static-top {
+        background-color: #2e3436;
+    }
+</style>

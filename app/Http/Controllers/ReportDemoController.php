@@ -39,14 +39,32 @@ class ReportDemoController extends Controller
             })->get();
             if(!empty($data) && $data->count()){
                 foreach ($data as $key => $value) {
-                    $insert[] = ['title' => $value->title, 'description' => $value->description];
+                    $insert[] = ['month' => $value->month, 'emergency_name' => $value->emergency_name, 'emergency_description' =>
+                    $value->emergency_description, 'emergency_start_date' => $value->emergency_start_date, 'emergency_end_date' =>
+                    $value->emergency_end_date, 'hospital_name' => $value->hospital_name, 'bed_count' => $value->bed_count,
+                    'beds_available' => $value->beds_available];
                 }
                 if(!empty($insert)){
                     DB::table('reports')->insert($insert);
-                    dd('Insert Record successfully.');
+                    return view('fileImportSuccess');
                 }
             }
         }
         return back();
+    }
+
+    public function generateBar()
+    {
+        return view('generateBar');
+    }
+
+    public function generate()
+    {
+        return view('generate');
+    }
+
+    public function generateBedBar()
+    {
+        return view('generateBedBar');
     }
 }
