@@ -23,6 +23,14 @@
         .fa-btn {
             margin-right: 6px;
         }
+        .navbar-static-top {
+            background-color: #777777;
+        }
+
+        .navbar-nav li:hover {
+            background-color: #ddd;
+            color: white;
+        }
     </style>
 </head>
 <body id="app-layout">
@@ -47,14 +55,14 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}" style="color: whitesmoke; font-weight: 900;">Home</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/login') }}" style="color: whitesmoke; font-weight: 900;">Login</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

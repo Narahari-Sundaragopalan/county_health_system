@@ -1,8 +1,8 @@
-@extends('layouts.userlayout')
+@extends(Auth::user() ? 'layouts.userlayout' : 'layouts.guestpage')
 @section('content')
     <html lang="en">
         <title>Import - Export Laravel 5</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+
     <br/>
     <br/>
     <div class="container">
@@ -42,7 +42,6 @@
                     <a href="{{ url('downloadExcel/xls') }}"><button class="btn btn-success btn-lg" style="background-color: #2ca02c;">Download Excel xls</button></a>
                     <a href="{{ url('downloadExcel/xlsx') }}"><button class="btn btn-success btn-lg" style="background-color: #2ca02c;">Download Excel xlsx</button></a>
                     <a href="{{ url('downloadExcel/csv') }}"><button class="btn btn-success btn-lg" style="background-color: #2ca02c;">Download CSV</button></a>
-
                 </div>
 
             </div>

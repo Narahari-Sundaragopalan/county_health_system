@@ -56,3 +56,11 @@ Route::post('/generateBarViz', 'ReportDemoController@generate');
 Route::get('/generateBedBarViz', 'ReportDemoController@generateBedBar');
 
 Route::post('/generateBedBarViz', 'ReportDemoController@generateBedBar');
+
+Route::get('/about', 'WelcomeController@about');
+
+Route::post('/about', 'WelcomeController@about');
+
+Route ::get('/contact', 'WelcomeController@about');
+
+Route::post('/contact', 'WelcomeControler@about');

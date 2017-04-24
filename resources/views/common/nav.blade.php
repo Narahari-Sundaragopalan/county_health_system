@@ -21,11 +21,11 @@
         @if (Auth::check())
             <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}" style="color: whitesmoke">Home</a></li>
                     {{-- Menu for Users with Administration Role Only --}}
                     @role('admin')
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: whitesmoke">
                             <i class="fa fa-btn fa-fw fa-cogs"></i>Administration<span class="caret"></span></a>
                         <ul class="dropdown-menu multi level" role="menu">
                             <li><a href="{{ url('/users') }}"><i class="fa fa-btn fa-fw fa-user"></i>Users</a></li>
@@ -42,7 +42,7 @@
 
                     @role('nurse')
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: whitesmoke">
                             <i class="fa fa-btn fa-fw fa-cogs"></i>Manage<span class="caret"></span></a>
                         <ul class="dropdown-menu multi level" role="menu">
                             <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
@@ -55,7 +55,7 @@
 
                     @role('coordinator')
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: whitesmoke">
                             <i class="fa fa-btn fa-fw fa-cogs"></i>Manage<span class="caret"></span></a>
                         <ul class="dropdown-menu multi level" role="menu">
                             <li><a href="{{ url('/emergencies') }}"><i class="fa fa-btn fa-fw fa-medkit"></i>Emergencies</a></li>
@@ -76,7 +76,7 @@
                     <li><a href="{{ url('/login') }}">Login</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: whitesmoke">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-fw fa-sign-out"></i>Logout</a></li>
                             <li><a href="{{ url('/password/changePassword') }}"><i class="fa fa-btn fa-fw fa-lock"></i>Change Password</a></li>
@@ -91,8 +91,20 @@
 </nav>
 
 <style>
+
+    .navbar-nav li:hover {
+        background-color: darkgrey;
+    }
+
+    .dropdown a:hover {
+        background-color: white;
+    }
+
+    .fa-user:hover {
+        background-color: transparent;
+    }
     .dropdown-menu {
-        background-color: #888a85;
+        background-color: #e5e5e5;
         position: absolute;
         top: 100%;
         left: 0;
@@ -110,4 +122,6 @@
     .navbar-static-top {
         background-color: #2e3436;
     }
+
+
 </style>
