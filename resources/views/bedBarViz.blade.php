@@ -63,7 +63,7 @@
             width = 600 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
-    var formatPercent = d3.format(".0%");
+    var formatPercent = d3.format(" ");
 
     var x = d3.scale.ordinal()
             .rangeRoundBands([0, width], .1);

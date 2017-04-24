@@ -65,7 +65,7 @@
                         <li><a href="{{ url('/login') }}" style="color: whitesmoke; font-weight: 900;">Login</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: whitesmoke; font-weight: 900;">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 

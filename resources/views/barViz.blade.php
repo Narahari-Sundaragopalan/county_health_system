@@ -112,7 +112,7 @@
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text("Frequency");
+                .text("Frequency of emergency call");
 
         svg.selectAll(".bar")
                 .data(data)

@@ -61,8 +61,6 @@ Route::post('/generateBedBarViz', 'ReportDemoController@generateBedBar');
 
 Route::get('/about', 'WelcomeController@about');
 
-Route::post('/about', 'WelcomeController@about');
-
 Route ::get('/contact', 'WelcomeController@about');
 
-Route::post('/contact', 'WelcomeControler@about');
+Route::get('/help', 'WelcomeController@about');

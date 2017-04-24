@@ -9,11 +9,11 @@
                     <div class="panel-heading"><h3 style="text-align: center">Report Vizualization</h3></div>
                     <div class="panel-body">
                         <form action="{{ url('generateBarViz') }}" method="GET">{{ csrf_field() }}
-                            <button type="submit" id="data-viz" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Frequency Viz</button>
+                            <button type="submit" id="data-viz" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Emergency Call Analysis</button>
                         </form>
                         </br>
                         <form action="{{ url('generateBedBarViz') }}" method="GET">{{ csrf_field() }}
-                            <button type="submit" id="bed-data-viz" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Bed Status Viz</button>
+                            <button type="submit" id="bed-data-viz" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Bed Status Analysis</button>
                         </form>
                     </div>
                 </div>
