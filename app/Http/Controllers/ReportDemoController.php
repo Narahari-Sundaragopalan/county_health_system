@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Emergency;
+use App\Patient;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,21 +16,53 @@ use Maatwebsite\Excel\Facades\Excel;
 
 use App\Report;
 
+use App\Hospital;
+
 class ReportDemoController extends Controller
 {
     public function importExport()
     {
         return view('importExport');
     }
-    public function downloadExcel($type)
+    public function downloadExcel(Request $request, $type)
     {
-        $data = Report::get()->toArray();
-        return Excel::create('ReportOnEmergencyAndBedCount', function($excel) use ($data) {
-            $excel->sheet('mySheet', function($sheet) use ($data)
-            {
-                $sheet->fromArray($data);
-            });
-        })->download($type);
+        $report_type = $request['report_type'];
+        if($report_type == 'Hospital') {
+            $data = Hospital::get()->toArray();
+            return Excel::create('Report on Hospitals', function($excel) use ($data) {
+                $excel->sheet('mySheet', function($sheet) use ($data)
+                {
+                    $sheet->fromArray($data);
+                });
+            })->download($type);
+        }
+        elseif ($report_type == 'Emergency') {
+            $data = Emergency::get()->toArray();
+            return Excel::create('Report on Emergency', function($excel) use ($data) {
+                $excel->sheet('mySheet', function($sheet) use ($data)
+                {
+                    $sheet->fromArray($data);
+                });
+            })->download($type);
+        }
+        elseif ($report_type == 'Bed Status') {
+            $data = Report::get()->toArray();
+            return Excel::create('Report on Bed Status', function($excel) use ($data) {
+                $excel->sheet('mySheet', function($sheet) use ($data)
+                {
+                    $sheet->fromArray($data);
+                });
+            })->download($type);
+        }
+        elseif ($report_type == 'Patients') {
+            $data = Patient::get()->toArray();
+            return Excel::create('Report on Patients', function($excel) use ($data) {
+                $excel->sheet('mySheet', function($sheet) use ($data)
+                {
+                    $sheet->fromArray($data);
+                });
+            })->download($type);
+        }
     }
     public function importExcel()
     {

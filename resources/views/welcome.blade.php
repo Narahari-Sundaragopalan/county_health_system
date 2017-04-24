@@ -1,4 +1,4 @@
-@extends(Auth::user() ? 'layouts.userlayout' : 'layouts.guestpage')
+@extends('layouts.app')
 
 <head>
     <style>

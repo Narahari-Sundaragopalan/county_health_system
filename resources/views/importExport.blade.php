@@ -35,13 +35,22 @@
 
                 </form>
                 <br/>
+                    <h3>Download File :</h3>
+                    <div class="form-group">
+                         {!! Form::open(['url' => 'downloadExcel/xls','method'=>'POST']) !!}
+                        <div class="col-lg-2">{{ Form::select('report_type', array('Hospital' => 'Hospital', 'Emergency' => 'Emergency', 'Patients' => 'Patients', 'Bed Status' => 'Bed Status'), null, ['placeholder' => 'Select Report Type', 'class' => 'col-md-4 form-control cds-select']) }}</div>
+                    </div>
+                    <br/>
 
 
-                <h3>Download File :</h3>
+
                 <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
-                    <a href="{{ url('downloadExcel/xls') }}"><button class="btn btn-success btn-lg" style="background-color: #2ca02c;">Download Excel xls</button></a>
-                    <a href="{{ url('downloadExcel/xlsx') }}"><button class="btn btn-success btn-lg" style="background-color: #2ca02c;">Download Excel xlsx</button></a>
-                    <a href="{{ url('downloadExcel/csv') }}"><button class="btn btn-success btn-lg" style="background-color: #2ca02c;">Download CSV</button></a>
+
+                               
+                        <button type="submit" class="btn btn-success" style="background-color: #2ca02c;">Download Report</button>
+                    {!! Form::close() !!}
+                                        
+
                 </div>
 
             </div>

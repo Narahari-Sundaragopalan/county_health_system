@@ -43,6 +43,8 @@ Route::get('importExport', 'ReportDemoController@importExport');
 
 Route::get('downloadExcel/{type}', 'ReportDemoController@downloadExcel');
 
+Route::post('downloadExcel/{type}', 'ReportDemoController@downloadExcel');
+
 Route::post('importExcel', 'ReportDemoController@importExcel');
 
 Route::get('/generateBarChart', 'ReportDemoController@generateBar');
